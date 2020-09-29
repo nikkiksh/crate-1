@@ -17,3 +17,4 @@ export const grey3 = '#666666'
 export const grey4 = '#333333'
 
 export const black = '#000000'
+export const red = '#FF0000'

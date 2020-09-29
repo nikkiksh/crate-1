@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom'
 import { Grid, GridCell } from '../../../ui/grid'
 import { primary as primaryGradient } from '../../../ui/common/gradients'
 import { level1 } from '../../../ui/common/shadows'
+import { red } from "../../../ui/common/colors"
 
 // App Imports
 import home from '../../../setup/routes/home'
@@ -29,7 +30,8 @@ const Header = (props) => {
       position: 'fixed',
       left: 0,
       right: 0,
-      top: 0
+      top: 0,
+      zIndex: 999
     }}>
       <Grid alignCenter={true} style={{ marginTop: '1.5em' }}>
         <GridCell>
@@ -55,6 +57,7 @@ const Header = (props) => {
               ?
               <Menu>
                 { props.user.details.role === 'ADMIN' && <MenuItem to={admin.dashboard.path} section="admin">Admin</MenuItem> }
+                { props.user.details.role !== 'ADMIN' && <MenuItem to={user.products.path} style={{ color: red , border: '5px solid red', borderRadius: '1.4em', marginRight: '1em', padding: '0.4em 2.5em'}} >Products</MenuItem>}
 
                 <MenuItem to={crate.list.path}>Crates</MenuItem>
 
